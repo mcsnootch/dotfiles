@@ -1,0 +1,175 @@
+# ~/.tmux.conf
+#
+# See the following files:
+#
+#   /opt/local/share/doc/tmux/t-williams.conf
+#   /opt/local/share/doc/tmux/screen-keys.conf
+#   /opt/local/share/doc/tmux/vim-keys.conf
+#
+# URLs to read:
+#
+#   http://blog.yjl.im/2009/11/migrating-to-tmux-from-gnuscreen.html
+#   http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/
+#   http://blog.hawkhost.com/2010/07/02/tmux-%E2%80%93-the-terminal-multiplexer-part-2/
+#   http://www.dayid.org/os/notes/tm.html
+#
+# Other sample tmux.conf files
+#
+#   http://www.mindfuzz.net/?p=178
+#
+# -----------------------------------------------------------------------------
+# Global settings 
+
+set-option repeat-time 200
+set -sg escape-time 1 
+# Set prefix key to Ctrl-a
+unbind-key C-b
+set-option -g prefix C-a
+
+# send the prefix to client inside window
+bind-key C-a send-prefix
+bind a send-prefix
+
+
+# scrollback buffer n lines
+set -g history-limit 5000
+
+# listen for activity on all windows
+set -g bell-action any
+
+# start window indexing at zero (default)
+set -g base-index 1
+set -g pane-base-index 1
+
+# instructs tmux to expect UTF-8 sequences
+setw -g utf8 on
+
+# tell tmux to use 256 colour terminal
+set -g default-terminal "screen-256color"
+
+# xterm-style function key sequences
+setw -g xterm-keys on
+
+# vi-style controls for copy mode
+setw -g mode-keys vi
+
+# Key bindings 
+
+# reload settings
+bind-key R source-file ~/.tmux.conf \; display "Reloaded!"
+
+# window splits 
+bind | split-window -h
+bind - split-window -v
+
+# window navigation and resizing
+bind h select-pane -L
+bind l select-pane -R
+bind j select-pane -D
+bind k select-pane -U
+
+bind -r J resize-pane -L 5
+bind -r L resize-pane -R 5
+bind -r K resize-pane -U 5
+bind -r J resize-pane -D 5
+
+# Cycle to next pane
+bind-key -r Tab select-pane -t :.+
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# kill current pane/window
+bind-key q confirm-before kill-pane
+bind-key Q confirm-before kill-window
+
+# window layouts (emacs-like)
+unbind Up
+bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
+unbind Down
+bind Down last-window \; swap-pane -s tmp.1 \; select-window -t tmp
+
+#bind-key 1 break-pane
+#bind-key 2 select-layout even-vertical
+#bind-key 3 select-layout even-horizontal
+#bind-key o select-pane -U
+
+# specific window layouts
+#bind -r y next-layout
+#bind o select-layout "active-only"
+#bind O select-layout "main-vertical"
+
+# copying and pasting
+setw -g mode-keys vi
+unbind [
+bind Escape copy-mode
+bind p paste-buffer
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+bind P pipe-pane -o "cat >>~/#W.log" \; display "Terminal logged to ~/#W.log"
+
+# enable mouse selection in copy mode
+#setw -g mode-mouse on
+
+# list all paste buffers (default key is '#')
+bind-key b list-buffers
+
+# choose buffer to paste interactively (default key was '=')
+bind-key p choose-buffer
+
+# delete the most recently copied buffer of text (default key was '-')
+bind-key x delete-buffer
+
+bind-key c new-window
+
+# next
+bind-key -r Space next-window
+
+# title (default key in tmux is ',')
+bind-key A command-prompt "rename-window %%"
+
+# quit
+bind-key \ confirm-before kill-server
+
+# displays
+bind-key * list-clients
+
+# Statusbar settings 
+set -g status-left-length 40
+set -g status-left "#[fg=green]Session: #S #[fg=yellow]#I #[fg=cyan]#P"
+setw -g monitor-activity on
+set -g visual-activity on
+set -g status-justify centre
+
+# toggle statusbar
+bind-key s set status
+
+# use vi-style key bindings in the status line
+set -g status-keys vi
+
+# amount of time for which status line messages and other indicators
+# are displayed. time is in milliseconds.
+set -g display-time 2000
+
+# default statusbar colors
+set -g status-fg white
+set -g status-bg default
+set -g status-attr default
+
+# default window title colors
+setw -g window-status-fg white
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+# active window title colors
+setw -g window-status-current-fg cyan
+setw -g window-status-current-bg default
+setw -g window-status-current-attr underscore
+
+# command/message line colors
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright
+
+# -----------------------------------------------------------------------------
+# vim: fen fdl=0 fdm=marker
