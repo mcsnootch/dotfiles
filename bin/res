@@ -19,7 +19,8 @@
 local index1, index2
 
 set index1 to 3 -- 1440 x 900 (Best for Retina)
-set index2 to 5 -- 1920 x 1200 (More Space)
+set index2 to 4 -- 1920 x 1200 (More Space)
+set index3 to 5 -- 1920 x 1200 (More Space)
 
 tell application "System Preferences"
  activate
@@ -40,6 +41,8 @@ tell application "System Events"
         if (value of radio button index1) is true then
                   set indexToUse to index2
         else if (value of radio button index2) is true then
+             set indexToUse to index3
+        else if (value of radio button index3) is true then
              set indexToUse to index1
         end if
 

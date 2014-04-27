@@ -1,3 +1,6 @@
+" infect
+execute pathogen#infect()
+
 set number
 set showmode
 

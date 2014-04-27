@@ -10,6 +10,8 @@
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Tab through all controls in a dialog by default
+defaults write "Apple Global Domain" AppleKeyboardUIMode -int 2
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
