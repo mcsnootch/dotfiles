@@ -24,6 +24,10 @@ set softtabstop=3
 set expandtab
 " end indentation settings
 
+" Stop creating netrwhist files
+let g:netrw_dirhistmax = 0
+
+" Misc gui settings
 set t_Co=256
 if has("mac")
    set guifont=Monaco:h12:
