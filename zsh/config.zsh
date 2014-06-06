@@ -46,3 +46,8 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
+
+# use emacs keybindings on the command line
+bindkey -e
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
