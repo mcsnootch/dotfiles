@@ -154,12 +154,12 @@ set -g status-keys vi
 set -g display-time 2000
 
 # default statusbar colors
-set -g status-fg white
+set -g status-fg default
 set -g status-bg default
 set -g status-attr default
 
 # default window title colors
-setw -g window-status-fg white
+setw -g window-status-fg default
 setw -g window-status-bg default
 setw -g window-status-attr dim
 
@@ -174,6 +174,8 @@ set -g message-bg black
 set -g message-attr bright
 
 set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+
 
 # -----------------------------------------------------------------------------
 # vim: fen fdl=0 fdm=marker
