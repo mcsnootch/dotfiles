@@ -1,9 +1,0 @@
-;;; -*- coding: utf-8 -*-
-(("/Users/james.roberts/.emacs.d/elpa/cider-0.6.0/cider-autoloads.el" . 2961)
- ("/Users/james.roberts/.emacs.d/elpa/clojure-mode-2.1.1/clojure-mode-autoloads.el" . 1093)
- ("/Users/james.roberts/.emacs.d/elpa/clojure-test-mode-3.0.0/clojure-test-mode-autoloads.el" . 875)
- ("/Users/james.roberts/.emacs.d/elpa/dash-2.7.0/dash-autoloads.el" . 169)
- ("/Users/james.roberts/.emacs.d/elpa/epl-0.7/epl-autoloads.el" . 166)
- ("/Users/james.roberts/.emacs.d/elpa/pkg-info-0.5/pkg-info-autoloads.el" . 3961)
- ("/Users/james.roberts/.emacs.d/elpa/rainbow-delimiters-1.3.21/rainbow-delimiters-autoloads.el" . 1607)
- ("/Users/james.roberts/.emacs.d/init.el" . 315))
