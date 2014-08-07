@@ -6,7 +6,8 @@
 (defvar my-packages '(better-defaults
 		      clojure-mode
 		      clojure-test-mode
-                      cider))
+                      cider
+                      color-theme))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -17,3 +18,8 @@
 
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq slime-contribs '(slime-fancy))
+
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+(setq mac-control-modifier 'control)
+(setq ns-function-modifier 'hyper)
