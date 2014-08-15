@@ -18,8 +18,3 @@
 
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq slime-contribs '(slime-fancy))
-
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'super)
-(setq mac-control-modifier 'control)
-(setq ns-function-modifier 'hyper)
