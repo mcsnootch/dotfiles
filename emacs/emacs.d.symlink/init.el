@@ -18,3 +18,12 @@
 
 (setq inferior-lisp-program "/usr/local/bin/ccl")
 (setq slime-contribs '(slime-fancy))
+
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+
+(define-key input-decode-map "\e[1;5A" [C-up])
+(define-key input-decode-map "\e[1;6A" [S-C-up])
+(define-key input-decode-map "\e[1;6B" [S-C-down])
+
+(server-start)
