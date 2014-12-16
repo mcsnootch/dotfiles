@@ -9,6 +9,18 @@ else
   git="/usr/bin/git"
 fi
 
+if (( $+commands[java] ))
+then
+   java="$commands[java]"
+else
+   java="/usr/bin/java"
+fi
+
+java_version() {
+   echo $($java -version 2>&1 | egrep '^java version' | sed 's:java version "\(.*\)":\1:')
+   #| sed 's:java version "\(.*\)":\1:'
+}
+
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
@@ -73,7 +85,7 @@ directory_name() {
 }
 
 #export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
-export PROMPT=$'\n[%n:%~ $(git_dirty)$(need_push)]\n› '
+export PROMPT=$'\n[%n:%~ $(git_dirty)$(need_push) (jdk $(java_version))]\n› '
 #export PROMPT=$'\n[%n:%~ ]\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
