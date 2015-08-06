@@ -44,3 +44,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Show hidden files in finder
 defaults write com.apple.finder AppleShowAllFiles TRUE
+
+#Disable showing attachments inline in Mail
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool YES
