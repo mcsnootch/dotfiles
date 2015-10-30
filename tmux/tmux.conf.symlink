@@ -22,7 +22,7 @@
 
 set-option -g default-shell /bin/zsh
 
-set-option -g repeat-time 200
+set-option -g repeat-time 500
 set -sg escape-time 1 
 # Set prefix key to Ctrl-a
 unbind-key C-b
@@ -111,7 +111,7 @@ bind-key -t vi-copy 'y' copy-selection
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Terminal logged to ~/#W.log"
 
 # enable mouse selection in copy mode
-#setw -g mode-mouse on
+set -g mode-mouse off
 
 # list all paste buffers (default key is '#')
 bind-key b list-buffers
