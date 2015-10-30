@@ -1,0 +1,8 @@
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mhinz/vim-signify'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Raimondi/delimitMate'
+Plug 'junegunn/vim-easy-align'
+Plug 'easymotion/vim-easymotion'
+Plug 'helino/vim-json'
