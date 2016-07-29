@@ -1,0 +1,7 @@
+#!/bin/bash
+
+original_url=$1
+
+local_url=$(echo $original_url| sed 's/https:\/\/portal-.*.autotrader.co.uk/http:\/\/portal-local.autotrader.co.uk:8301/')
+echo $local_url | pbcopy
+echo $local_url
