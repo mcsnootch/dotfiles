@@ -26,7 +26,8 @@ set-option -g repeat-time 500
 set -sg escape-time 1 
 # Set prefix key to Ctrl-a
 unbind-key C-b
-set-option -g prefix C-space
+set-option -g prefix C-a
+#set-option -g prefix C-space
 
 # send the prefix to client inside window
 bind-key C-a send-prefix
@@ -85,10 +86,10 @@ bind-key q confirm-before kill-pane
 bind-key Q confirm-before kill-window
 
 # window layouts (emacs-like)
-unbind Up
-bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
-unbind Down
-bind Down last-window \; swap-pane -s tmp.1 \; select-window -t tmp
+#unbind Up
+#bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
+#unbind Down
+#bind Down last-window \; swap-pane -s tmp.1 \; select-window -t tmp
 
 #bind-key 1 break-pane
 #bind-key 2 select-layout even-vertical
@@ -111,7 +112,7 @@ bind-key -t vi-copy 'y' copy-selection
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Terminal logged to ~/#W.log"
 
 # enable mouse selection in copy mode
-set -g mode-mouse off
+#set -g mode-mouse off
 
 # list all paste buffers (default key is '#')
 bind-key b list-buffers
