@@ -17,7 +17,7 @@ else
 fi
 
 java_version() {
-   echo $($java -version 2>&1 | egrep '^java version' | sed 's:java version "\(.*\)":\1:')
+   echo $($java -version 2>&1 | egrep 'version' | sed 's:.* version "\(.*\)".*:\1:')
    #| sed 's:java version "\(.*\)":\1:'
 }
 

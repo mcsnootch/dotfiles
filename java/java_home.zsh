@@ -1,4 +1,8 @@
-[[ -x /usr/libexec/java_home ]] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+[[ -x /usr/libexec/java_home ]] && export JAVA_HOME=$(/usr/libexec/java_home -v 14)
+
+java14() {
+   export JAVA_HOME=$(/usr/libexec/java_home -v 14)
+}
 
 java8() {
    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)

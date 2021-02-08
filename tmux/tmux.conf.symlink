@@ -106,8 +106,6 @@ setw -g mode-keys vi
 unbind [
 bind Escape copy-mode
 bind p paste-buffer
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
 
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Terminal logged to ~/#W.log"
 
