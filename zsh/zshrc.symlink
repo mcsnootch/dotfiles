@@ -44,11 +44,6 @@ unset config_files
 
 export PATH=$HOME/.rbenv/shims:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/james/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/james/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/james/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="/Users/james/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -58,13 +53,10 @@ eval "$(pyenv virtualenv-init -)"
 if which pyenv-virtualenv-init > /dev/null; then 
   eval "$(pyenv virtualenv-init -)"; 
 fi
+
 # tcl-tk
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/tcl-tk/lib"
 export CPPFLAGS="-I/usr/local/opt/tcl-tk/include"
 export PKG_CONFIG_PATH="/usr/local/opt/tcl-tk/lib/pkgconfig"
 export PYTHON_CONFIGURE_OPTS="--with-tcltk-includes='-I/usr/local/opt/tcl-tk/include' --with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib -ltcl8.6 -ltk8.6'"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/james/.sdkman"
-[[ -s "/Users/james/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/james/.sdkman/bin/sdkman-init.sh"
